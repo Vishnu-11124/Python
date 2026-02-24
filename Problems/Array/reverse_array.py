@@ -1,5 +1,5 @@
 
-# Swap array using two pointer
+# Reverse array using two pointer
 
 def swap_array( array ):
     left = 0
