@@ -10,8 +10,8 @@ def count_number(number):
     return count
 
 
-
 # ------------------------------------------------------
+
 
 print(count_number(12345))  # Output: 5
 
