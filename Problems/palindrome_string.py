@@ -8,15 +8,13 @@ def string_palindrome(string):
 
     while left < right:
         if string[left] != string[right]:
-            flag = False
-            break
+            return "The string is not a palindrome."
         left += 1
         right -= 1
 
-    if flag:
-        return "The string is a palindrome."
-    else:
-        return "The string is not a palindrome."
+    return "The string is a palindrome."
+
+        
 
 # ------------------------------------------------------
 
