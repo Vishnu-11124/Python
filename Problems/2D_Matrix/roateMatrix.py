@@ -1,15 +1,27 @@
 
-
 def rotate(matrix):
     n = len(matrix)
-    new_matrix = [[0] * n for _ in range(n)]
 
-    for i in range(n):
-        k = n - 1 - i
-        for j in range(n):
-            new_matrix[j][k] = matrix[i][j]
+    for i in range(n-1):
+        for j in range(i + 1,n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-    return new_matrix
+    for row in matrix:
+        row.reverse()   
+
+    return matrix        
+# ---------------------------------------------------------------------------
+
+# def rotate(matrix):
+#     n = len(matrix)
+#     new_matrix = [[0] * n for _ in range(n)]
+
+#     for i in range(n):
+#         k = n - 1 - i
+#         for j in range(n):
+#             new_matrix[j][k] = matrix[i][j]
+
+#     return new_matrix
 
 # --------------------------------------------------------
 
