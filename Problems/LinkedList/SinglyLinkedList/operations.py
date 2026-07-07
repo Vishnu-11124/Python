@@ -19,17 +19,17 @@ class SinglyLinkedList:
             curr.next = new_node                   
 
     def traverse(self):
-        curr = self.head
-        if curr is None:
+        current = self.head
+
+        if current is None:
             print("List is empty")
         else:
-            while curr is not None:
-                print(curr.data, end=" ")
-                curr = curr.next
-            print()  # for newline after printing the list    
-
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")  # for newline after printing the list)
 
 sll = SinglyLinkedList()
 sll.append(45)
 sll.append(98)
-sll.traverse()  # Output: 45 98 
+sll.traverse()  # Output: 45 -> 98 -> None
