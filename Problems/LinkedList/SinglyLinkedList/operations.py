@@ -31,7 +31,10 @@ class SinglyLinkedList:
 
     def insert_at(self, val, position):
         new_node = Node(val)
-        if position == 0:
+        if position < 0:
+            print("Position out of bounds")
+            return
+        elif position == 0:
             new_node.next = self.head
             self.head = new_node
         else:
@@ -40,13 +43,39 @@ class SinglyLinkedList:
             while current is not None and count < position - 1:
                 current = current.next
                 count += 1
-                
+
             if current is None:
                 print("Position out of bounds")
                 return
                 
             new_node.next = current.next
             current.next = new_node
+
+    def deleteNode(self, position):
+        current = self.head
+        if current is None:
+            print("List is empty")
+            return
+
+        if position < 0:
+            print("Position out of bound")
+            return 
+        elif position == 0:
+            self.head = current.next
+            current.next = None
+        else:
+            count = 0
+            pre = None
+            while current is not None and count < position:
+                pre = current
+                current = current.next
+                count +=  1
+            if current is None:
+                print("Position out of bound")
+                return
+
+            pre.next = current.next
+            current.next = None                
 
 sll = SinglyLinkedList()
 sll.append(45)
