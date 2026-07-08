@@ -51,31 +51,29 @@ class SinglyLinkedList:
             new_node.next = current.next
             current.next = new_node
 
-    def deleteNode(self, position):
+    def deleteNode(self, value):
         current = self.head
         if current is None:
             print("List is empty")
             return
 
-        if position < 0:
-            print("Position out of bound")
-            return 
-        elif position == 0:
+        if current.data == value:
             self.head = current.next
             current.next = None
         else:
-            count = 0
-            pre = None
-            while current is not None and count < position:
-                pre = current
+            prev = None
+            while current is not None and current.data != value:
+                prev = current
                 current = current.next
-                count +=  1
+
             if current is None:
-                print("Position out of bound")
+                print("Value not found in the list")
                 return
 
-            pre.next = current.next
-            current.next = None                
+            prev.next = current.next
+            current.next = None
+
+                       
 
 sll = SinglyLinkedList()
 sll.append(45)
