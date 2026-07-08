@@ -29,6 +29,25 @@ class SinglyLinkedList:
                 current = current.next
             print("None")  # for newline after printing the list)
 
+    def insert_at(self, val, position):
+        new_node = Node(val)
+        if position == 0:
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            current = self.head
+            count = 0
+            while current is not None and count < position - 1:
+                current = current.next
+                count += 1
+                
+            if current is None:
+                print("Position out of bounds")
+                return
+                
+            new_node.next = current.next
+            current.next = new_node
+
 sll = SinglyLinkedList()
 sll.append(45)
 sll.append(98)
