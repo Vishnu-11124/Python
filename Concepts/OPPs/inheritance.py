@@ -44,4 +44,27 @@ tesla.display_info()
 
 # ---------------------------------------------------------------
 
+# multiple inheritance
+
+class College:
+    cname = "ABC College"
+    place = "New York"
+
+class Degree:
+    dname = "Computer Science"
+    duration = "4 years"
+
+class Student(College, Degree):
+    def __init__(self, name, roll_no, department):
+        self.name = name
+        self.roll_no = roll_no
+        self.department = department
+
+    def display_info(self):
+        print(f"Name: {self.name}, Roll No: {self.roll_no}, Department: {self.department}")
+        print(f"College: {self.cname}, Place: {self.place}")
+        print(f"Degree: {self.dname}, Duration: {self.duration}")
+
+Tarun = Student("Tarun", 101, "Computer Science")
+Tarun.display_info()        
 
