@@ -26,7 +26,30 @@ class DoublyLinkedList:
             while temp.next is not None:
                 temp = temp.next
             temp.next = new_node
-            new_node.prev = temp        
+            new_node.prev = temp     
+
+    def insertAtAnyPosition(self, val, position):
+        new_node = Node(val)
+        if position == 0:
+            self.insertNodeAtHead(val)
+            return
+
+        current = self.head
+        count = 0
+        
+        while current is not None and count < position - 1:
+            current = current.next
+            count += 1
+
+        if current is None:
+            print("Position out of bounds")
+            return
+
+        new_node.next = current.next
+        if current.next is not None:
+            current.next.prev = new_node
+        current.next = new_node
+        new_node.prev = current        
 
     def printList(self):
         temp = self.head
@@ -38,6 +61,7 @@ class DoublyLinkedList:
 ddl = DoublyLinkedList()
 ddl.insertNodeAtHead(26)
 ddl.appendNode(87)
+ddl.insertAtAnyPosition(17, 1)
 ddl.printList()
 
 
