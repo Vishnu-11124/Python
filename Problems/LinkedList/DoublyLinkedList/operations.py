@@ -49,7 +49,15 @@ class DoublyLinkedList:
         if current.next is not None:
             current.next.prev = new_node
         current.next = new_node
-        new_node.prev = current        
+        new_node.prev = current    
+
+    def deleteHead(self):
+        if self.head is None:
+            print("List is empty")
+            return
+
+        temp = self.head
+        self.head = temp.next
 
     def printList(self):
         temp = self.head
@@ -62,6 +70,7 @@ ddl = DoublyLinkedList()
 ddl.insertNodeAtHead(26)
 ddl.appendNode(87)
 ddl.insertAtAnyPosition(17, 1)
+ddl.deleteHead()
 ddl.printList()
 
 
