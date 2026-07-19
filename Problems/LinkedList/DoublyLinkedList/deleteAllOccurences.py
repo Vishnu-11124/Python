@@ -6,23 +6,29 @@ class Node:
 
 class List:
     def deleteValues(self, head, key):
-        if head is None:
-            print("The list is empty")
-            return 
-        
-        current = head
-        pre = None
-        while current is not None:
-            if current.val == key:
-                next = current.next
-                pre.next = next
-                next.prev = pre
-                current = next
-            else:
-                next = current.next
-                pre = current
-                current = next    
+        if head.next is None and head.val == key:
+            return None
 
+        temp = head
+        pre = None
+        new_head = head
+
+        while temp is not None:
+            if temp.val == key:
+                if pre is not None:
+                    pre.next = temp.next
+
+                if temp.next is not None:
+                    temp.next.prev = pre    
+
+                if new_head.val == key:
+                    new_head = new_head.next    
+
+            pre = temp
+            temp = temp.next    
+
+        return new_head    
+                
     def printList(self, head):
         current = head
         while current is not None:
@@ -52,6 +58,6 @@ ddl = List()
 print("Original list: ")
 ddl.printList(head)
 
-ddl.deleteValues(head, 2)
+new_head = ddl.deleteValues(head, 2)
 print("Updated list:")
-ddl.printList(head)
+ddl.printList(new_head)
