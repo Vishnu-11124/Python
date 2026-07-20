@@ -6,6 +6,9 @@ class Node:
 
 class List:
     def deleteValues(self, head, key):
+        if head is None:
+            return None
+        
         if head.next is None and head.val == key:
             return None
 
@@ -21,10 +24,11 @@ class List:
                 if temp.next is not None:
                     temp.next.prev = pre    
 
-                if new_head.val == key:
+                if temp == new_head:
                     new_head = new_head.next    
+            else:
+                pre = temp
 
-            pre = temp
             temp = temp.next    
 
         return new_head    
